@@ -17,7 +17,7 @@ From our perspective, some methods in this lesson are really interesting and fan
 ### 迭代法/Recursive Method
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
-## 线性方程组直接法——LU分解/Direct way to solve the System of Linear Equation——LU Decomposition
+## 线性方程组LU分解/System of Linear Equation——LU Decomposition
 ### 杜利特尔分解/Doolittle Decomposition
 ### 形态分析/Property Analysis
 ## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
