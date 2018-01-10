@@ -23,27 +23,29 @@ From our perspective, some methods in this lesson are really interesting and fan
 ### 迭代法/Recursive Method
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
-## 线性方程组LU分解/System of Linear Equation——LU Decomposition
-### 杜利特尔分解/Doolittle Decomposition
-### 形态分析/Property Analysis
-## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-### Jacobi迭代/Jacobi Recursion
-### Gauss-Seidel迭代/Gauss-Seidel Recursion
-## 插值与拟合/Interpolation and Fitting
-### Lagrange插值/Lagrangian Interpolation
-### Newton插值/Newton Interpolation
-### 最小二乘拟合/Least Square
-## 数值积分/Numerical Integral
-### 插值型数值积分
-### Newton-Cotes公式/Newton-Cotes Method
-#### 梯形公式
-#### Sinpson公式
-### 复化求积公式
-#### 复化梯形公式
-#### 复化Sinpson公式
-### Gauss求积公式
-## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
-### Euler法/Euler Method
-### 改进的Euler法/Improved Euler Method
 
+<!--
+	## 线性方程组LU分解/System of Linear Equation——LU Decomposition
+	### 杜利特尔分解/Doolittle Decomposition
+	### 形态分析/Property Analysis
+	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
+	### Jacobi迭代/Jacobi Recursion
+	### Gauss-Seidel迭代/Gauss-Seidel Recursion
+	## 插值与拟合/Interpolation and Fitting
+	### Lagrange插值/Lagrangian Interpolation
+	### Newton插值/Newton Interpolation
+	### 最小二乘拟合/Least Square
+	## 数值积分/Numerical Integral
+	### 插值型数值积分
+	### Newton-Cotes公式/Newton-Cotes Method
+	#### 梯形公式
+	#### Sinpson公式
+	### 复化求积公式
+	#### 复化梯形公式
+	#### 复化Sinpson公式
+	### Gauss求积公式
+	## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
+	### Euler法/Euler Method
+	### 改进的Euler法/Improved Euler Method
+-->
 
