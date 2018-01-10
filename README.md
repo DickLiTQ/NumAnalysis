@@ -13,30 +13,30 @@ From our perspective, some methods in this lesson are really interesting and fan
 
 ## 目录/Content
 1. 非线性方程数值解/Numerical Solution to Nonlinear Equation
-  1. 迭代法/Recursive Method
-  2. 牛顿法/Newton Method
-  3. 双点快速截弦法/
+    1. 迭代法/Recursive Method
+    2. 牛顿法/Newton Method
+    3. 双点快速截弦法/
 2. 线性方程组直接法——LU分解/Direct way to solve the System of Linear Equation——LU Decomposition
-  1. 杜利特尔分解/Doolittle Decomposition
-  2. 形态分析/Property Analysis
+    1. 杜利特尔分解/Doolittle Decomposition
+    2. 形态分析/Property Analysis
 3. 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-  1. Jacobi迭代/Jacobi Recursion
-  2. Gauss-Seidel迭代/Gauss-Seidel Recursion
+    1. Jacobi迭代/Jacobi Recursion
+    2. Gauss-Seidel迭代/Gauss-Seidel Recursion
 4. 插值与拟合/Interpolation and Fitting
-  1. Lagrange插值/Lagrangian Interpolation
-  2. Newton插值/Newton Interpolation
-  3. 最小二乘拟合/Least Square
+    1. Lagrange插值/Lagrangian Interpolation
+    2. Newton插值/Newton Interpolation
+    3. 最小二乘拟合/Least Square
 5. 数值积分/Numerical Integral
-  1. 插值型数值积分
-  2. Newton-Cotes公式/Newton-Cotes Method
-    1. 梯形公式
-    2. Sinpson公式
-  3. 复化求积公式
-    1. 复化梯形公式
-    2. 复化Sinpson公式
-  4. Gauss求积公式
+    1. 插值型数值积分
+    2. Newton-Cotes公式/Newton-Cotes Method
+        1. 梯形公式
+        2. Sinpson公式
+    3. 复化求积公式
+        1. 复化梯形公式
+        2. 复化Sinpson公式
+    4. Gauss求积公式
 6. 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
-  1. Euler法/Euler Method
-  2. 改进的Euler法/Improved Euler Method
+    1. Euler法/Euler Method
+    2. 改进的Euler法/Improved Euler Method
 
 
