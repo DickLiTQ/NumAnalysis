@@ -11,3 +11,13 @@ As a learner who knows only a little about computer and programming, I know that
 
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
+## 目录/Content
+1. 非线性方程数值解/Numerical Solution to nonlinear equation
+2. 线性方程组直接法——LU分解/Direct way to solve the system of linear equation——LU decomposition
+3. 线性方程组迭代法/Recursive way to solve the system of linear equation
+4. 插值与拟合/Interpolation and fitting
+5. 数值积分/Numerical Integral
+6. 常微分方程数值解/Numerical solution in ordinary differential equation
+
+
+
