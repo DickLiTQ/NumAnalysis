@@ -1,4 +1,4 @@
-# 数值分析/NumAnalysis
+## 数值分析/NumAnalysis
 
 我们希望将《计算方法》课程中的理论内容通过Python语言进行实现，并将其运用到实际问题之中。
 作为一个对计算机稍微有一定了解的学习者，深知将理论转化为实际往往是存在困难的。通常发展了一门新的理论，并将其转化为技术，这期间需要很长的时间来逐步完善并提高效率。
@@ -12,7 +12,7 @@ As a learner who knows only a little about computer and programming, I know that
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
 ## 目录/Table of Contents
-* [非线性方程数值解/Numerical Solution to Nonlinear Equation](#非线性方程数值解/Numerical Solution to Nonlinear Equation)
+* [非线性方程数值解/Numerical Solution to Nonlinear Equation](##非线性方程数值解/Numerical Solution to Nonlinear Equation)
 	* [迭代法]/Recursive Method
 	* [牛顿法]/Newton Method
 	* [双点快速截弦法]/
