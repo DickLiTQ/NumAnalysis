@@ -12,7 +12,7 @@ As a learner who knows only a little about computer and programming, I know that
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
 ## 目录/Table of Contents
-* [非线性方程数值解/Numerical Solution to Nonlinear Equation](##非线性方程数值解/Numerical Solution to Nonlinear Equation)
+* [非线性方程数值解/Numerical Solution to Nonlinear Equation](##非线性方程数值解/Numerical-Solution-to-Nonlinear-Equation)
 	* [迭代法]/Recursive Method
 	* [牛顿法]/Newton Method
 	* [双点快速截弦法]/
