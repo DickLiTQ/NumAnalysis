@@ -22,7 +22,7 @@ From our perspective, some methods in this lesson are really interesting and fan
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 ### 迭代法/Recursive Method
 基本原理
-![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow x=g(x) \\Rightarrow x_{n+1}=g(x_n))
+![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
 
