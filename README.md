@@ -23,7 +23,7 @@ From our perspective, some methods in this lesson are really interesting and fan
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
 在这个部分中我们将利用循环完成迭代的操作，需要手动输入迭代公式![](http://latex.codecogs.com/gif.latex?g(x))，具体代码如下：
-""" python
+``` python
 import numpy as np
 import sympy as sp
 g = lambda x: x**2-3*x**(1/2)+4 # Here input your recursive function
@@ -46,7 +46,8 @@ def Recursive_Method(g,x0,n,residual):
     return x[index]
 
 Recursive_Method(g,x0,n,residual)
-"""
+```
+
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
 
