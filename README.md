@@ -18,11 +18,35 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [双点快速截弦法/](###双点快速截弦法/)
 
 
-
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 ### 迭代法/Recursive Method
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
+在这个部分中我们将利用循环完成迭代的操作，需要手动输入迭代公式![](http://latex.codecogs.com/gif.latex?g(x))，具体代码如下：
+"""
+import numpy as np
+import sympy as sp
+g = lambda x: x**2-3*x**(1/2)+4 # Here input your recursive function
+x0 = 1 # Your initial point
+n = 10 # Your iteration times
+residual = 0.001 # Your tolerance 
+
+def Recursive_Method(g,x0,n,residual):
+    x = np.zeros(n)
+    x[0] = x0
+    for index in range(1,n):
+        x[index] = g(x[index-1])
+        difference = x[index] - x[index-1]
+        if np.abs(x[index]-x[index-1])<residual:
+            print("Iteration %r: x=%r, difference=%r <= Residual=%r" %(index,x[index],difference,residual))
+            break
+        else:
+            print("Iteration %r: x=%r, difference=%r" %(index,x[index],difference))
+    print("Terminal: The final result is %r" % x[index])
+    return x[index]
+
+Recursive_Method(g,x0,n,residual)
+"""
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
 
