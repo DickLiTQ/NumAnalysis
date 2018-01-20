@@ -32,9 +32,9 @@ n = 10 # Your iteration times
 residual = 0.001 # Your tolerance 
 
 def Recursive_Method(g,x0,n,residual):
-    x = np.zeros(n)
+    x = np.zeros(n+1)
     x[0] = x0
-    for index in range(1,n):
+    for index in range(1,n+1):
         x[index] = g(x[index-1])
         difference = x[index] - x[index-1]
         if np.abs(x[index]-x[index-1])<residual:
@@ -47,12 +47,25 @@ def Recursive_Method(g,x0,n,residual):
 
 Recursive_Method(g,x0,n,residual)
 ```
-例如我们要使用![](http://latex.codecogs.com/gif.latex?x=\frac{1}{2}(10-x^3)^{\frac{1}{2}})求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](![](http://latex.codecogs.com/gif.latex?[0,1])上的根，则使用以下的代码
+例如我们要使用![](http://latex.codecogs.com/gif.latex?x=\frac{1}{2}(10-x^3)^{\frac{1}{2}})求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-6})，则使用以下的代码
 ``` python
 g = lambda x: 0.5*(10-x**3)**0.5
 Recursive_Method(g,1.5,10,10e-6)
 ```
-
+得到的结果为：
+```
+Iteration 1: x=1.2869537676233751, difference=-0.2130462323766249
+Iteration 2: x=1.4025408035395783, difference=0.11558703591620323
+Iteration 3: x=1.3454583740232942, difference=-0.057082429516284172
+Iteration 4: x=1.3751702528160383, difference=0.029711878792744173
+Iteration 5: x=1.3600941927617329, difference=-0.015076060054305396
+Iteration 6: x=1.3678469675921328, difference=0.0077527748303998223
+Iteration 7: x=1.3638870038840212, difference=-0.0039599637081115802
+Iteration 8: x=1.3659167333900399, difference=0.0020297295060187626
+Iteration 9: x=1.3648782171936771, difference=-0.0010385161963628597
+Iteration 10: x=1.3654100611699569, difference=0.00053184397627981106
+Terminal: The final result is 1.3654100611699569
+```
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
 
