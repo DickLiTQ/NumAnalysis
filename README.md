@@ -66,6 +66,10 @@ Iteration 9: x=1.3648782171936771, difference=-0.0010385161963628597
 Iteration 10: x=1.3654100611699569, difference=0.00053184397627981106
 Terminal: The final result is 1.3654100611699569
 ```
+
+**注意
+1. 本部分尚未加入是否发散的判断，因此要根据迭代结果进行发散的判断
+2. 请自行计算迭代式![](http://latex.codecogs.com/gif.latex?x_{n+1}=g(x_n))，在输入过程中注意指数与根号的输入规范
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
 
