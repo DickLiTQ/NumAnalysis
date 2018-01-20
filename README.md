@@ -67,10 +67,39 @@ Iteration 10: x=1.3654100611699569, difference=0.00053184397627981106
 Terminal: The final result is 1.3654100611699569
 ```
 
-**注意
+**注意**
 1. 本部分尚未加入是否发散的判断，因此要根据迭代结果进行发散的判断
 2. 请自行计算迭代式![](http://latex.codecogs.com/gif.latex?x_{n+1}=g(x_n))，在输入过程中注意指数与根号的输入规范
+
 ### 牛顿法/Newton Method
+具有特殊迭代格式的迭代法，对于![](http://latex.codecogs.com/gif.latex?f(x)=0)的求解，采用格式：
+
+![](http://latex.codecogs.com/gif.latex?g(x)=x-\dfrac{f(x)}{f'(x)})
+
+能保证更快的收敛速度。这里，我们为了得到更为精确的结果，避免数值微分带来的误差和符号计算可能碰到的不确定性，要求手动输入函数![](http://latex.codecogs.com/gif.latex?f(x),f'(x))，并借用[迭代法](###迭代法/Recursive-Method)中的函数：
+``` python
+f = lambda x: x**2+3*x+1 # Your function f(x)
+f1 = lambda x: 2*x+3 # First order deviation of f(x)
+x0 = 1 # The initial point
+n = 100 # Iteration time
+residual = 10e-6 # Tolerance
+
+def Newton_Recursive(f,f1,x0,n,residual):
+    x = np.zeros(n+1)
+    x[0] = x0
+    for index in range(1,n+1):
+        x[index] = x[index-1]-f(x[index-1])/f1(x[index-1])
+        difference = x[index] - x[index-1]
+        if np.abs(x[index]-x[index-1])<residual:
+            print("Iteration %r: x=%r, difference=%r <= Residual=%r" %(index,x[index],difference,residual))
+            break
+        else:
+            print("Iteration %r: x=%r, difference=%r" %(index,x[index],difference))
+    print("Terminal: The final result is %r" % x[index])
+    return x[index]
+
+Newton_Recursive(f,f1,x0,n,residual)
+```
 ### 双点快速截弦法/
 
 <!--
