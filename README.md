@@ -20,7 +20,7 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [杜利特尔分解/Doolittle Decomposition](###杜利特尔分解/Doolittle-Decomposition)
 	* [性态分析/Property Analysis](###性态分析/Property-Analysis)
 
-## 非线性方程数值解/Numerical Solution to Nonlinear Equation
+## 非线性方程数值解/Numerical-Solution-to-Nonlinear-Equation
 ### 迭代法/Recursive Method
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
