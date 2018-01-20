@@ -100,6 +100,22 @@ def Newton_Recursive(f,f1,x0,n,residual):
 
 Newton_Recursive(f,f1,x0,n,residual)
 ```
+作为对比，我们依旧解决迭代法中10次尚未达到精度的例子：
+>求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-6})。
+此时，在牛顿法中，![](http://latex.codecogs.com/gif.latex?f(x)=x^3+4x^2-10,f'(x)=3x^2+8x)。对应代码为：
+``` python
+f = lambda x: x**3+4*x**2-10
+f1 = lambda x: 3*x**2+8*x
+Newton_Recursive(f,f1,1.5,10,10e-6)
+```
+仅通过三次迭代就得到收敛结果
+```
+Iteration 1: x=1.3733333333333333, difference=-0.12666666666666671
+Iteration 2: x=1.3652620148746266, difference=-0.0080713184587066777
+Iteration 3: x=1.3652300139161466, difference=-3.2000958479994068e-05
+Iteration 4: x=1.3652300134140969, difference=-5.0204973511824846e-10 <= Residual=1e-05
+Terminal: The final result is 1.3652300134140969
+```
 ### 双点快速截弦法/
 
 <!--
