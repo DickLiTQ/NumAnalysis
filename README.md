@@ -26,7 +26,7 @@ From our perspective, some methods in this lesson are really interesting and fan
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
 ### 迭代法
-### Recursive Method 
+#### Recursive Method 
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
 在这个部分中我们将利用循环完成迭代的操作，需要手动输入迭代公式![](http://latex.codecogs.com/gif.latex?g(x))，具体代码如下：
@@ -79,12 +79,12 @@ Terminal: The final result is 1.3654100611699569
 2. 请自行计算迭代式![](http://latex.codecogs.com/gif.latex?x_{n+1}=g(x_n))，在输入过程中注意指数与根号的输入规范
 
 ### 牛顿法
-### Newton Method
+#### Newton Method
 具有特殊迭代格式的迭代法，对于![](http://latex.codecogs.com/gif.latex?f(x)=0)的求解，采用格式：
 
 ![](http://latex.codecogs.com/gif.latex?g(x)=x-\dfrac{f(x)}{f'(x)})
 
-能保证更快的收敛速度。这里，我们为了得到更为精确的结果，避免数值微分带来的误差和符号计算可能碰到的不确定性，要求手动输入函数![](http://latex.codecogs.com/gif.latex?f(x),f'(x))，并同理使用[迭代法](###迭代法/Recursive-Method)中的方法：
+能保证更快的收敛速度。这里，我们为了得到更为精确的结果，避免数值微分带来的误差和符号计算可能碰到的不确定性，要求手动输入函数![](http://latex.codecogs.com/gif.latex?f(x),f'(x))，并同理使用[迭代法](#recursive-method)中的方法：
 ``` python
 f = lambda x: x**2+3*x+1 # Your function f(x)
 f1 = lambda x: 2*x+3 # First order deviation of f(x)
@@ -133,7 +133,7 @@ Terminal: The final result is 1.3652300134140969
 
 其中![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n},b\in\mathbb{R}^n,det(A)\neq0)
 ### 杜利特尔分解
-### Doolittle Decomposition
+#### Doolittle Decomposition
 我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
 
 ![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
@@ -216,13 +216,18 @@ L=
     return y,x
  ```
 ### 性态分析
-### Property Analysis
+#### Property Analysis
 
 ## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
+类似于[迭代法](#recursive-method)，但迭代对象换成了矩阵和向量，依旧选择合适的![](http://latex.codecogs.com/gif.latex?g)使得
+
+![](http://latex.codecogs.com/gif.latex?X_{n+1}=g(X_n),~X\in\mathbb{R}^n)
+
+以上迭代思想导出不同收敛速度的Jacobi迭代法和Gauss-Seidel迭代法
 ### Jacobi迭代
-### Jacobi Recursion
+#### Jacobi Recursion
 ### Gauss-Seidel迭代
-### Gauss-Seidel Recursion
+#### Gauss-Seidel Recursion
 
 <!--	## 插值与拟合/Interpolation and Fitting
 	### Lagrange插值/Lagrangian Interpolation
