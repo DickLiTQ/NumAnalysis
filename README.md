@@ -84,7 +84,7 @@ f = lambda x: x**2+3*x+1 # Your function f(x)
 f1 = lambda x: 2*x+3 # First order deviation of f(x)
 x0 = 1 # The initial point
 n = 100 # Iteration time
-residual = 10e-6 # Tolerance
+residual = 1e-5 # Tolerance
 
 def Newton_Recursive(f,f1,x0,n,residual):
     x = np.zeros(n+1)
