@@ -12,16 +12,16 @@ As a learner who knows only a little about computer and programming, I know that
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
 ## 目录/Table of Contents
-  * [非线性方程数值解/Numerical Solution to Nonlinear Equation](#非线性方程数值解/Numerical-Solution-to-Nonlinear-Equation)
-    * [迭代法/Recursive Method](#迭代法/Recursive-Method)
-    * [牛顿法/Newton Method](#牛顿法/Newton-Method)
+  * [非线性方程数值解/Numerical Solution to Nonlinear Equation](#非线性方程数值解/numerical-solution-to-nonlinear-equation)
+    * [迭代法/Recursive Method](#迭代法/recursive-method)
+    * [牛顿法/Newton Method](#牛顿法/mewton-method)
     * [双点快速截弦法/](#双点快速截弦法/)
-  * [线性方程组LU分解/System of Linear Equation——LU Decomposition](#线性方程组LU分解/System-of-Linear-Equation——LU-Decomposition)
-    * [杜利特尔分解/Doolittle Decomposition](#杜利特尔分解/Doolittle-Decomposition)
-    * [性态分析/Property Analysis](#性态分析/Property-Analysis)
-  * [线性方程组迭代法/Recursive way to solve the System of Linear Equation](#线性方程组迭代法/Recursive-way-to-solve-the-System-of-Linear-Equation)
-    * [Jacobi迭代/Jacobi Recursion](#Jacobi迭代/Jacobi-Recursion)
-    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#Gauss-Seidel迭代/Gauss-Seidel-Recursion)
+  * [线性方程组LU分解/System of Linear Equation——LU Decomposition](#线性方程组LU分解/system-of-linear-equation——lu-decomposition)
+    * [杜利特尔分解/Doolittle Decomposition](#杜利特尔分解/doolittle-decomposition)
+    * [性态分析/Property Analysis](#性态分析/property-analysis)
+  * [线性方程组迭代法/Recursive way to solve the System of Linear Equation](#线性方程组迭代法/recursive-way-to-solve-the-system-of-linear-equation)
+    * [Jacobi迭代/Jacobi Recursion](#jacobi迭代/jacobi-recursion)
+    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel迭代/gauss-seidel-recursion)
 
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 ### 迭代法/Recursive Method
