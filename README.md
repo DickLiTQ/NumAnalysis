@@ -131,8 +131,54 @@ Terminal: The final result is 1.3652300134140969
 
 ![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
 
-之所以这样做，是因为对于![](http://latex.codecogs.com/gif.latex?Ly=b,~Ux=y)的求解是相对容易的，可以先通过求解![](http://latex.codecogs.com/gif.latex?y)再来求解![](http://latex.codecogs.com/gif.latex?x)。具体的代码如下：
+之所以这样做，是因为对于![](http://latex.codecogs.com/gif.latex?Ly=b,~Ux=y)的求解是相对容易的，可以先通过求解![](http://latex.codecogs.com/gif.latex?y)再来求解![](http://latex.codecogs.com/gif.latex?x)。
 
+首先我们先对系数矩阵A进行判断并返回维度供后续使用
+``` python
+import numpy as np
+A = np.array([[1,3,5,9],
+              [2,5,2,5],
+              [9,3,4,1],
+              [1,10,0,19]]) # Here input your coefficient matrix
+b = np.array([10,24,31,42]) # Here input the vector
+
+def check(A):
+    row = A.shape[0]
+    col = A.shape[1]
+    if row!=col:
+        print("Input error: A is not a square matrix")
+        return 0
+    else:
+        if np.linalg.det(A)==0:
+            print("The determination of A is equal to zero")
+            return 0
+        else:
+            if row == 1:
+                print("The dimension of matrix is 1")
+                return 0
+            else:
+                return row
+```
+获得检验矩阵并获得维度信息后，再根据矩阵乘法定义进行LU分解：
+``` python
+def Decomposition(A):
+    if check(A) == 0:
+        print("Error")
+    else:
+        print("det(A)=%r"%check(A))
+        dim = check(A)
+        L = np.eye(dim)    
+        U = np.zeros_like(A)
+        U[0,:]=A[0,:]
+        L[1:,0]=A[1:,0]/U[0,0]
+        for r in range(1,dim):
+            for l in range(1,r):
+                L[r,l]=1/U[l,l]*(A[r,l]-L[r,:l]@U[:l,l])
+            for u in range(r,dim):
+                U[r,u]=A[r,u]-L[r,:r]@U[:r,u]
+    print("L=\n",L,"\n","U=\n",U)
+    return L,U
+```
 ### 性态分析/Property Analysis
 
 <!--	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
