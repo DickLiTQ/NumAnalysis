@@ -49,10 +49,10 @@ def Recursive_Method(g,x0,n,residual):
 
 Recursive_Method(g,x0,n,residual)
 ```
-例如我们要使用![](http://latex.codecogs.com/gif.latex?x=\frac{1}{2}(10-x^3)^{\frac{1}{2}})求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-6})，则使用以下的代码
+例如我们要使用![](http://latex.codecogs.com/gif.latex?x=\frac{1}{2}(10-x^3)^{\frac{1}{2}})求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-5})，则使用以下的代码
 ``` python
 g = lambda x: 0.5*(10-x**3)**0.5
-Recursive_Method(g,1.5,10,10e-6)
+Recursive_Method(g,1.5,10,1e-5)
 ```
 得到的结果为：
 ```
@@ -103,12 +103,12 @@ def Newton_Recursive(f,f1,x0,n,residual):
 Newton_Recursive(f,f1,x0,n,residual)
 ```
 作为对比，我们依旧解决迭代法中10次尚未达到精度的例子：
->求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-6})。
+>求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](http://latex.codecogs.com/gif.latex?[0,1])上的根，迭代10次或两次误差小于![](http://latex.codecogs.com/gif.latex?10^{-5})。
 此时，在牛顿法中，![](http://latex.codecogs.com/gif.latex?f(x)=x^3+4x^2-10,f'(x)=3x^2+8x)。对应代码为：
 ``` python
 f = lambda x: x**3+4*x**2-10
 f1 = lambda x: 3*x**2+8*x
-Newton_Recursive(f,f1,1.5,10,10e-6)
+Newton_Recursive(f,f1,1.5,10,1e-5)
 ```
 仅通过三次迭代就得到收敛结果
 ```
@@ -121,7 +121,15 @@ Terminal: The final result is 1.3652300134140969
 ### 双点快速截弦法/
 
 ## 线性方程组LU分解/System of Linear Equation——LU Decomposition
+本部分求解的线性方程组为行列式不为0的实方阵，用数学符号来表示，为：
+
+![](http://latex.codecogs.com/gif.latex?Ax=b)
+
+其中![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n},b\in\mathbb{R}^n,det(A)\neq0)
 ### 杜利特尔分解/Doolittle Decomposition
+我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
+
+![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
 ### 性态分析/Property Analysis
 
 <!--	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
