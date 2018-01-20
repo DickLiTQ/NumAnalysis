@@ -13,15 +13,15 @@ From our perspective, some methods in this lesson are really interesting and fan
 
 ## 目录/Table of Contents
   * 非线性方程数值解/Numerical Solution to Nonlinear Equation
-    * [迭代法/Recursive Method](#recursive-method)
-    * [牛顿法/Newton Method](#newton-method)
-    * [双点快速截弦法/](#双点快速截弦法/)
+	* [迭代法/Recursive Method](#recursive-method)
+	* [牛顿法/Newton Method](#newton-method)
+	* [双点快速截弦法/](#双点快速截弦法/)
   * 线性方程组LU分解/System of Linear Equation——LU Decomposition
-    * [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
-    * [性态分析/Property Analysis](#property-analysis)
+	* [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
+	* [性态分析/Property Analysis](#property-analysis)
   * 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-    * [Jacobi迭代/Jacobi Recursion](#acobi-recursion)
-    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
+    * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
+	* [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
 
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
