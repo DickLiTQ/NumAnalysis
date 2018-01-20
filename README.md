@@ -76,7 +76,7 @@ Terminal: The final result is 1.3654100611699569
 
 ![](http://latex.codecogs.com/gif.latex?g(x)=x-\dfrac{f(x)}{f'(x)})
 
-能保证更快的收敛速度。这里，我们为了得到更为精确的结果，避免数值微分带来的误差和符号计算可能碰到的不确定性，要求手动输入函数![](http://latex.codecogs.com/gif.latex?f(x),f'(x))，并借用[迭代法](###迭代法/Recursive-Method)中的函数：
+能保证更快的收敛速度。这里，我们为了得到更为精确的结果，避免数值微分带来的误差和符号计算可能碰到的不确定性，要求手动输入函数![](http://latex.codecogs.com/gif.latex?f(x),f'(x))，并同理使用[迭代法](###迭代法/Recursive-Method)中的方法：
 ``` python
 f = lambda x: x**2+3*x+1 # Your function f(x)
 f1 = lambda x: 2*x+3 # First order deviation of f(x)
