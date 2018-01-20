@@ -229,9 +229,10 @@ L=
 ![Notations](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/linrecursive.gif)
 ### Jacobi迭代
 #### Jacobi Recursion
+Jacobi迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=D^{-1}(L+U)X_n+D^{-1}b)
 ### Gauss-Seidel迭代
 #### Gauss-Seidel Recursion
-
+Gauss-Seidel迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=(D-L)^{-1}UX_n+(D-L)^{-1}b)
 <!--	## 插值与拟合/Interpolation and Fitting
 	### Lagrange插值/Lagrangian Interpolation
 	### Newton插值/Newton Interpolation
