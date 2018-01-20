@@ -12,19 +12,21 @@ As a learner who knows only a little about computer and programming, I know that
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
 ## 目录/Table of Contents
-  * [非线性方程数值解/Numerical Solution to Nonlinear Equation](#numerical-solution-to-nonlinear-equation)
+  * 非线性方程数值解/Numerical Solution to Nonlinear Equation
     * [迭代法/Recursive Method](#recursive-method)
-    * [牛顿法/Newton Method](#牛顿法/mewton-method)
+    * [牛顿法/Newton Method](#newton-method)
     * [双点快速截弦法/](#双点快速截弦法/)
-  * [线性方程组LU分解/System of Linear Equation——LU Decomposition](#线性方程组LU分解/system-of-linear-equation——lu-decomposition)
-    * [杜利特尔分解/Doolittle Decomposition](#杜利特尔分解/doolittle-decomposition)
-    * [性态分析/Property Analysis](#性态分析/property-analysis)
-  * [线性方程组迭代法/Recursive way to solve the System of Linear Equation](#线性方程组迭代法/recursive-way-to-solve-the-system-of-linear-equation)
-    * [Jacobi迭代/Jacobi Recursion](#jacobi迭代/jacobi-recursion)
-    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel迭代/gauss-seidel-recursion)
+  * 线性方程组LU分解/System of Linear Equation——LU Decomposition
+    * [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
+    * [性态分析/Property Analysis](#property-analysis)
+  * 线性方程组迭代法/Recursive way to solve the System of Linear Equation
+    * [Jacobi迭代/Jacobi Recursion](#acobi-recursion)
+    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
 
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
-### Recursive Method
+
+### 迭代法
+### Recursive Method 
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
 在这个部分中我们将利用循环完成迭代的操作，需要手动输入迭代公式![](http://latex.codecogs.com/gif.latex?g(x))，具体代码如下：
@@ -76,7 +78,8 @@ Terminal: The final result is 1.3654100611699569
 1. 本部分尚未加入是否发散的判断，因此要根据迭代结果进行发散的判断
 2. 请自行计算迭代式![](http://latex.codecogs.com/gif.latex?x_{n+1}=g(x_n))，在输入过程中注意指数与根号的输入规范
 
-### 牛顿法/Newton Method
+### 牛顿法
+### Newton Method
 具有特殊迭代格式的迭代法，对于![](http://latex.codecogs.com/gif.latex?f(x)=0)的求解，采用格式：
 
 ![](http://latex.codecogs.com/gif.latex?g(x)=x-\dfrac{f(x)}{f'(x)})
@@ -129,7 +132,8 @@ Terminal: The final result is 1.3652300134140969
 ![](http://latex.codecogs.com/gif.latex?Ax=b)
 
 其中![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n},b\in\mathbb{R}^n,det(A)\neq0)
-### 杜利特尔分解/Doolittle Decomposition
+### 杜利特尔分解
+### Doolittle Decomposition
 我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
 
 ![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
@@ -211,11 +215,14 @@ L=
     print("y=\n",y,"\n","x=\n",x)
     return y,x
  ```
-### 性态分析/Property Analysis
+### 性态分析
+### Property Analysis
 
 ## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-### Jacobi迭代/Jacobi Recursion
-### Gauss-Seidel迭代/Gauss-Seidel Recursion
+### Jacobi迭代
+### Jacobi Recursion
+### Gauss-Seidel迭代
+### Gauss-Seidel Recursion
 
 <!--	## 插值与拟合/Interpolation and Fitting
 	### Lagrange插值/Lagrangian Interpolation
