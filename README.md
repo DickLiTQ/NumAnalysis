@@ -165,7 +165,7 @@ def Decomposition(A):
     if check(A) == 0:
         print("Error")
     else:
-        print("det(A)=%r"%check(A))
+        print("det(A)=%r"%np.linalg.det(A))
         dim = check(A)
         L = np.eye(dim)    
         U = np.zeros_like(A)
@@ -179,6 +179,27 @@ def Decomposition(A):
     print("L=\n",L,"\n","U=\n",U)
     return L,U
 ```
+例如我们对下方矩阵A进行分解：
+![](http://latex.codecogs.com/gif.latex?\begin{bmatrix}1&3&5\\2&5&2\\9&3&4\end{bmatrix})
+``` python
+A = np.array([[1,3,5],
+              [2,5,2],
+              [9,3,4]
+              ])
+Decomposition(A)
+```
+得到结果为
+``` python
+det(A)=-151.0
+L=
+ [[  1.   0.   0.]
+ [  2.   1.   0.]
+ [  9.  24.   1.]] 
+ U=
+ [[  1   3   5]
+ [  0  -1  -8]
+ [  0   0 151]]
+ ```
 ### 性态分析/Property Analysis
 
 <!--	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
