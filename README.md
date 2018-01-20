@@ -180,7 +180,6 @@ def Decomposition(A):
     return L,U
 ```
 例如我们对下方矩阵A进行分解：
-![](http://latex.codecogs.com/gif.latex?\begin{bmatrix}1&3&5\\2&5&2\\9&3&4\end{bmatrix})
 ``` python
 A = np.array([[1,3,5],
               [2,5,2],
@@ -199,6 +198,15 @@ L=
  [[  1   3   5]
  [  0  -1  -8]
  [  0   0 151]]
+ ```
+ 再分别求解：![](http://latex.codecogs.com/gif.latex?Ly=b,~Ux=y)
+ ``` python
+ def Solve(A,b):
+    L,U = Decomposition(A)
+    y = np.linalg.solve(L,b)
+    x = np.linalg.solve(U,y)
+    print("y=\n",y,"\n","x=\n",x)
+    return y,x
  ```
 ### 性态分析/Property Analysis
 
