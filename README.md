@@ -16,7 +16,9 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [迭代法/Recursive Method](###迭代法/Recursive-Method)
 	* [牛顿法/Newton Method](###牛顿法/Newton-Method)
 	* [双点快速截弦法/](###双点快速截弦法/)
-
+* [线性方程组LU分解/System of Linear Equation——LU Decomposition](##线性方程组LU分解/System-of-Linear-Equation——LU-Decomposition)
+	* [杜利特尔分解/Doolittle Decomposition](###杜利特尔分解/Doolittle-Decomposition)
+	* [性态分析/Property Analysis](###性态分析/Property-Analysis)
 
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 ### 迭代法/Recursive Method
@@ -118,11 +120,11 @@ Terminal: The final result is 1.3652300134140969
 ```
 ### 双点快速截弦法/
 
-<!--
-	## 线性方程组LU分解/System of Linear Equation——LU Decomposition
-	### 杜利特尔分解/Doolittle Decomposition
-	### 形态分析/Property Analysis
-	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
+## 线性方程组LU分解/System of Linear Equation——LU Decomposition
+### 杜利特尔分解/Doolittle Decomposition
+### 性态分析/Property Analysis
+
+<!--	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
 	### Jacobi迭代/Jacobi Recursion
 	### Gauss-Seidel迭代/Gauss-Seidel Recursion
 	## 插值与拟合/Interpolation and Fitting
