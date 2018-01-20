@@ -12,7 +12,7 @@ As a learner who knows only a little about computer and programming, I know that
 From our perspective, some methods in this lesson are really interesting and fantastic. Maybe some much advanced technique has been used in popular modules, however, it is not important while we hope that the method in our textbook can solve the problem we faced and adapted to our demand.
 
 ## 目录/Table of Contents
-* [非线性方程数值解/Numerical Solution to Nonlinear Equation](##非线性方程数值解/Numerical-Solution-to-Nonlinear-Equation)
+* [非线性方程数值解/Numerical Solution to Nonlinear Equation](#Numerical-Solution-to-Nonlinear-Equation)
 	* [迭代法/Recursive Method](###迭代法/Recursive-Method)
 	* [牛顿法/Newton Method](###牛顿法/Newton-Method)
 	* [双点快速截弦法/](###双点快速截弦法/)
@@ -20,7 +20,8 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [杜利特尔分解/Doolittle Decomposition](###杜利特尔分解/Doolittle-Decomposition)
 	* [性态分析/Property Analysis](###性态分析/Property-Analysis)
 
-## 非线性方程数值解/Numerical-Solution-to-Nonlinear-Equation
+## 非线性方程数值解/Numerical Solution to Nonlinear Equation
+<span id="Numerical-Solution-to-Nonlinear-Equation"></span>
 ### 迭代法/Recursive Method
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
