@@ -130,6 +130,9 @@ Terminal: The final result is 1.3652300134140969
 我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
 
 ![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
+
+之所以这样做，是因为对于![](http://latex.codecogs.com/gif.latex?Ly=b,~Ux=y)的求解是相对容易的，可以先通过求解![](http://latex.codecogs.com/gif.latex?y)再来求解![](http://latex.codecogs.com/gif.latex?x)。具体的代码如下：
+
 ### 性态分析/Property Analysis
 
 <!--	## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
