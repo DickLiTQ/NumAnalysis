@@ -21,11 +21,12 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [性态分析/Property Analysis](###性态分析/Property-Analysis)
 
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
-<span id="Numerical-Solution-to-Nonlinear-Equation"></span>
+<span id="Numerical-Solution-to-Nonlinear-Equation">
 ### 迭代法/Recursive Method
 基本原理
 ![](http://latex.codecogs.com/gif.latex?f(x)=0\\Rightarrow~x=g(x)~\\Rightarrow~x_{n+1}=g(x_n))
 在这个部分中我们将利用循环完成迭代的操作，需要手动输入迭代公式![](http://latex.codecogs.com/gif.latex?g(x))，具体代码如下：
+</span>
 ``` python
 import numpy as np
 import sympy as sp
