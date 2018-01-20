@@ -224,7 +224,9 @@ L=
 
 ![](http://latex.codecogs.com/gif.latex?X_{n+1}=g(X_n),~X\in\mathbb{R}^n)
 
-以上迭代思想导出不同收敛速度的Jacobi迭代法和Gauss-Seidel迭代法
+以上迭代思想导出不同收敛速度的Jacobi迭代法和Gauss-Seidel迭代法。为了后面更好地描述，我们定义以下记号：
+
+![Notations](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/linrecursive.gif)
 ### Jacobi迭代
 #### Jacobi Recursion
 ### Gauss-Seidel迭代
