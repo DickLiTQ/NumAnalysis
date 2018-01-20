@@ -219,7 +219,7 @@ L=
 #### Property Analysis
 
 ## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-类似于[迭代法](#recursive-method)，但迭代对象换成了矩阵和向量，依旧选择合适的![](http://latex.codecogs.com/gif.latex?g)使得
+类似于[迭代法](#recursive-method)，但迭代对象换成了矩阵和向量，依旧选择合适的 ![](http://latex.codecogs.com/gif.latex?g(\cdot)) 使得
 
 ![](http://latex.codecogs.com/gif.latex?X_{n+1}=g(X_n),~X\in\mathbb{R}^n)
 
