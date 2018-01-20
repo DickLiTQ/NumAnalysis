@@ -47,6 +47,11 @@ def Recursive_Method(g,x0,n,residual):
 
 Recursive_Method(g,x0,n,residual)
 ```
+例如我们要使用![](http://latex.codecogs.com/gif.latex?x=\frac{1}{2}(10-x^3)^{\frac{1}{2}})求解![](http://latex.codecogs.com/gif.latex?x^3+4x^2-10=0)在![](![](http://latex.codecogs.com/gif.latex?[0,1])上的根，则使用以下的代码
+``` python
+g = lambda x: 0.5*(10-x**3)**0.5
+Recursive_Method(g,1.5,10,10e-6)
+```
 
 ### 牛顿法/Newton Method
 ### 双点快速截弦法/
