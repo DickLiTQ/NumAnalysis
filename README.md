@@ -23,8 +23,8 @@ From our perspective, some methods in this lesson are really interesting and fan
     * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
     * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
   * 插值与拟合/Interpolation and Fitting
-    * [多项式插值/Polynomial Interpolation](#polynomial-interpolation)
-    * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
+    * [多项式插值/Polynomial Interpolation](#polynomial-interpolation)
+    * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
     * [Newton插值/Newton Interpolation](#newton-interpolation)
     * [最小二乘拟合/Least Square Fitting](#least-square)
 	
@@ -515,7 +515,8 @@ array([[  0.,   2.,   0.,   0.,   0.],
 ### 最小二乘拟合
 #### Least Square
 
-<--     ## 数值积分/Numerical Integral
+<----    
+	## 数值积分/Numerical Integral
 	### 插值型数值积分
 	### Newton-Cotes公式/Newton-Cotes Method
 	#### 梯形公式
@@ -527,5 +528,5 @@ array([[  0.,   2.,   0.,   0.,   0.],
 	## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
 	### Euler法/Euler Method
 	### 改进的Euler法/Improved Euler Method
--->
+---->
 
