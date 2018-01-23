@@ -261,11 +261,69 @@ def Jacobi(A,x0,b,n):
         print("Iteration %d:"%iteration,"x=",x[:,iteration])
     return x
 ```
-
+我们用上述代码完成书本中的例题：
+>求解方程组：![](http://latex.codecogs.com/gif.latex?8x_1-3x_2+2x_3=20,4x_1+11x_2-x_3=33,2x_1+x_2+4x_3=12)，取初值为![](http://latex.codecogs.com/gif.latex?(0,0,0))，迭代次数为10。
+``` python
+A = np.array([[8,-3,2],
+              [4,11,-1],
+              [2,1,4]])
+b = np.array([20,33,12])
+x0 = np.array([0,0,0])
+Jacobi(A,x0,b,10)
+```
+结果为：
+```
+Inverse of D=
+ [[ 0.125       0.          0.        ]
+ [ 0.          0.09090909  0.        ]
+ [ 0.          0.          0.25      ]]
+Iteration 1: x= [ 2.5  3.   3. ]
+Iteration 2: x= [ 2.875       2.36363636  1.        ]
+Iteration 3: x= [ 3.13636364  2.04545455  0.97159091]
+Iteration 4: x= [ 3.02414773  1.94783058  0.92045455]
+Iteration 5: x= [ 3.00032283  1.9839876   1.00096849]
+Iteration 6: x= [ 2.99375323  1.99997065  1.00384168]
+Iteration 7: x= [ 2.99902857  2.0026208   1.00313072]
+Iteration 8: x= [ 3.00020012  2.00063786  0.99983051]
+Iteration 9: x= [ 3.00028157  1.99991182  0.99974048]
+Iteration 10: x= [ 3.00003181  1.99987402  0.99988126]
+```
 
 ### Gauss-Seidel迭代
 #### Gauss-Seidel Recursion
 Gauss-Seidel迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=(D-L)^{-1}UX_n+(D-L)^{-1}b)
+类似地，我们用以下代码进行实现：
+``` python
+def GS(A,x0,b,n):
+    D,L,U = Decomposition(A)
+    D_L = D-L 
+    D_L_1 = np.linalg.inv(D_L)
+    print("Inverse of D-L=\n",D_L_1)
+    g = lambda x: D_L_1@U@x + D_L_1@b
+    x = np.zeros((A.shape[0],n+1))
+    x[:,0] = x0
+    for iteration in range(1,n+1):
+        x[:,iteration] = g(x[:,iteration-1])
+        print("Iteration %d:"%iteration,"x=",x[:,iteration])
+    return x
+```
+Gauss-Seidel与Jacobi迭代的区别在于，每次迭代的过程中就代入迭代值加速收敛，因此其收敛速度更快，对于上面方程组，Gauss-Seidel迭代法的10次迭代结果为：
+```
+Inverse of D-L=
+ [[ 0.125       0.          0.        ]
+ [-0.04545455  0.09090909  0.        ]
+ [-0.05113636 -0.02272727  0.25      ]]
+Iteration 1: x= [ 2.5         2.09090909  1.22727273]
+Iteration 2: x= [ 2.97727273  2.02892562  1.00413223]
+Iteration 3: x= [ 3.00981405  1.99680691  0.99589125]
+Iteration 4: x= [ 2.99982978  1.99968838  1.00016302]
+Iteration 5: x= [ 2.99984239  2.00007213  1.00006077]
+Iteration 6: x= [ 3.00001186  2.00000121  0.99999377]
+Iteration 7: x= [ 3.00000201  1.9999987   0.99999932]
+Iteration 8: x= [ 2.99999968  2.00000005  1.00000014]
+Iteration 9: x= [ 2.99999998  2.00000002  1.        ]
+Iteration 10: x= [ 3.00000001  2.          1.        ]
+```
 <!--	## 插值与拟合/Interpolation and Fitting
 	### Lagrange插值/Lagrangian Interpolation
 	### Newton插值/Newton Interpolation
