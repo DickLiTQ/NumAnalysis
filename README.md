@@ -230,6 +230,39 @@ L=
 ### Jacobi迭代
 #### Jacobi Recursion
 Jacobi迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=D^{-1}(L+U)X_n+D^{-1}b)
+
+其中，矩阵D, L, U的分解为：
+``` python
+def Decomposition(A):
+    dim = A.shape[0]
+    D = np.zeros_like(A)
+    L = np.zeros_like(A)
+    U = np.zeros_like(A)
+    for r in range(dim):
+        D[r,r] = A[r,r]
+        for c in range(dim):
+            if c<r:
+                L[r,c] = -A[r,c]
+            if c>r:
+                U[r,c] = -A[r,c]
+    return D,L,U
+```
+利用上方分解结果进行Jacobi迭代：
+``` python
+def Jacobi(A,x0,b,n):
+    D,L,U = Decomposition(A)
+    D_1 = np.linalg.inv(D)
+    print("Inverse of D=\n",D_1)
+    g = lambda x: D_1@(L+U)@x + D_1@b
+    x = np.zeros((A.shape[0],n+1))
+    x[:,0] = x0
+    for iteration in range(1,n+1):
+        x[:,iteration] = g(x[:,iteration-1])
+        print("Iteration %d:"%iteration,"x=",x[:,iteration])
+    return x
+```
+
+
 ### Gauss-Seidel迭代
 #### Gauss-Seidel Recursion
 Gauss-Seidel迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=(D-L)^{-1}UX_n+(D-L)^{-1}b)
