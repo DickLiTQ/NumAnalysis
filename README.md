@@ -28,6 +28,17 @@ From our perspective, some methods in this lesson are really interesting and fan
     * [Newton插值/Newton Interpolation](#newton-interpolation)
     * [最小二乘拟合/Least Square Fitting](#least-square)
     * [插值与拟合绘图/Plot Illustration](#plot-illustration)
+  * 数值积分/Numerical Integral
+    * [插值型数值积分]
+    * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
+          * [梯形公式]
+	  * [Sinpson公式]
+    * [复化求积公式]
+          * [复化梯形公式]
+	  * [复化Sinpson公式]
+   * [常微分方程数值解/Numerical Solution in Ordinary Differential Equation]
+          * [Euler公式/Euler Method]
+	  * [改进的Euler法/Improved Euler Method]
 	
 --------------------
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
