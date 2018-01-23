@@ -589,7 +589,7 @@ def plot(data):
     fig.show()
 plot(data)
 ```
-![Figure Output](#https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_Interpolation%26Fitting.png)
+![Figure Output](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_Interpolation%26Fitting.png)
 
 
 
