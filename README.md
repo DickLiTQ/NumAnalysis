@@ -31,14 +31,14 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 数值积分/Numerical Integral
     * [插值型数值积分]
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
-          * [梯形公式]
-	  * [Sinpson公式]
+            * [梯形公式]
+	    * [Sinpson公式]
     * [复化求积公式]
-          * [复化梯形公式]
-	  * [复化Sinpson公式]
+            * [复化梯形公式]
+	    * [复化Sinpson公式]
    * [常微分方程数值解/Numerical Solution in Ordinary Differential Equation]
-          * [Euler公式/Euler Method]
-	  * [改进的Euler法/Improved Euler Method]
+            * [Euler公式/Euler Method]
+	    * [改进的Euler法/Improved Euler Method]
 	
 --------------------
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
