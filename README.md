@@ -559,6 +559,38 @@ Coefficient:  [ 0.02822754  2.23012035 -7.19255383]
 ### 插值与拟合绘图
 #### Plot Illustration
 如果我们希望知道插值与拟合的效果如何，一个最简单的方法就是通过图像进行分析。尽管课本中并不要求我们绘图，但是我们在这里尝试实现这一点，因为这样很Coooooool！
+``` python
+def plot(data):
+    xmin = np.min(data[:,0])
+    xmax = np.max(data[:,0])
+    ymin = np.min(data[:,1])
+    ymax = np.max(data[:,1])
+    x0 = np.linspace(xmin-0.5,xmax+0.5,100)
+    x = sp.Symbol('x')
+    fig, ax = plt.subplots(dpi=120)
+    ax.set_xlim(xmin-1,xmax+1)
+    ax.set_ylim(ymin-1,ymax+1)
+    ax.scatter(data[:,0],data[:,1],marker='v')
+    Poly = Polynomial_predict(data,x0)
+    Lagr = Lagrangian(data)
+    Newt = Newton(data)
+    L = np.zeros(100)
+    N = np.zeros(100)
+    index = 0
+    for tick in x0:
+        L[index] = Lagr.evalf(subs = {x:tick})
+        N[index] = Newt.evalf(subs = {x:tick})
+        index = index+1
+    ax.plot(x0,Poly,'r-',label='Ploynomial',alpha=0.3)
+    ax.plot(x0,L,'b-',label='Lagrangian',alpha=0.3)
+    ax.plot(x0,N,'g-',label='Newton',alpha=0.3)
+    ax.legend()
+    ax.set_title("Plot")
+    fig.show()
+plot(data)
+```
+![Figure Output](#https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_Interpolation%26Fitting.png)
+
 
 
 ## 数值积分/Numerical Integral
