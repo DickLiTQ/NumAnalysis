@@ -20,9 +20,14 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
 	* [性态分析/Property Analysis](#property-analysis)
   * 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-    * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
+        * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
 	* [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
-
+  * 插值与拟合/Interpolation and Fitting
+        * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
+	* [Newton插值/Newton Interpolation](#newton-interpolation)
+	* [最小二乘拟合/Least Square Fitting](#least-square)
+	
+===
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
 ### 迭代法
@@ -262,7 +267,7 @@ def Jacobi(A,x0,b,n):
     return x
 ```
 我们用上述代码完成书本中的例题：
->求解方程组：![](http://latex.codecogs.com/gif.latex?8x_1-3x_2+2x_3=20,4x_1+11x_2-x_3=33,2x_1+x_2+4x_3=12)，取初值为![](http://latex.codecogs.com/gif.latex?(0,0,0))，迭代次数为10。
+>求解方程组：![](http://latex.codecogs.com/gif.latex?8x_1-3x_2+2x_3=20,~4x_1+11x_2-x_3=33,~2x_1+x_2+4x_3=12)，取初值为![](http://latex.codecogs.com/gif.latex?x^T=(0,0,0))，迭代次数为10。
 ``` python
 A = np.array([[8,-3,2],
               [4,11,-1],
@@ -324,11 +329,16 @@ Iteration 8: x= [ 2.99999968  2.00000005  1.00000014]
 Iteration 9: x= [ 2.99999998  2.00000002  1.        ]
 Iteration 10: x= [ 3.00000001  2.          1.        ]
 ```
-<!--	## 插值与拟合/Interpolation and Fitting
-	### Lagrange插值/Lagrangian Interpolation
-	### Newton插值/Newton Interpolation
-	### 最小二乘拟合/Least Square
-	## 数值积分/Numerical Integral
+
+## 插值与拟合/Interpolation and Fitting
+### Lagrange插值
+#### Lagrangian Interpolation
+### Newton插值
+#### Newton Interpolation
+### 最小二乘拟合
+#### Least Square
+
+<--     ## 数值积分/Numerical Integral
 	### 插值型数值积分
 	### Newton-Cotes公式/Newton-Cotes Method
 	#### 梯形公式
