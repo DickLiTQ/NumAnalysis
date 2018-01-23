@@ -20,14 +20,15 @@ From our perspective, some methods in this lesson are really interesting and fan
 	* [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
 	* [性态分析/Property Analysis](#property-analysis)
   * 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-        * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
-	* [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
+    * [Jacobi迭代/Jacobi Recursion](#jacobi-recursion)
+    * [Gauss-Seidel迭代/Gauss-Seidel Recursion](#gauss-seidel-recursion)
   * 插值与拟合/Interpolation and Fitting
-        * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
-	* [Newton插值/Newton Interpolation](#newton-interpolation)
-	* [最小二乘拟合/Least Square Fitting](#least-square)
+    * [多项式插值/Polynomial Interpolation](#polynomial-interpolation)
+    * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
+    * [Newton插值/Newton Interpolation](#newton-interpolation)
+    * [最小二乘拟合/Least Square Fitting](#least-square)
 	
-===
+--------------------
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
 ### 迭代法
@@ -331,6 +332,13 @@ Iteration 10: x= [ 3.00000001  2.          1.        ]
 ```
 
 ## 插值与拟合/Interpolation and Fitting
+### 多项式插值
+多项式具有以下的形式
+
+![](http://latex.codecogs.com/gif.latex?f(x)=c_0+c_1x+c_2x^2+\dots+c_nx^n)
+
+
+#### Polynomial Interpolation
 ### Lagrange插值
 #### Lagrangian Interpolation
 ### Newton插值
