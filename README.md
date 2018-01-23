@@ -493,6 +493,7 @@ def Newton_predict(data,y):
 ```
 给定数据并求在x=1.5的拟合值：
 >(0,2), (1,-3), (2,-6), (3,11)。
+
 运行代码：
 ``` python
 data = np.array([[0,2],
@@ -515,8 +516,7 @@ array([[  0.,   2.,   0.,   0.,   0.],
 ### 最小二乘拟合
 #### Least Square
 
-<----    
-	## 数值积分/Numerical Integral
+<--	## 数值积分/Numerical Integral
 	### 插值型数值积分
 	### Newton-Cotes公式/Newton-Cotes Method
 	#### 梯形公式
@@ -527,6 +527,5 @@ array([[  0.,   2.,   0.,   0.,   0.],
 	### Gauss求积公式
 	## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
 	### Euler法/Euler Method
-	### 改进的Euler法/Improved Euler Method
----->
+	### 改进的Euler法/Improved Euler Method -->
 
