@@ -515,6 +515,7 @@ array([[  0.,   2.,   0.,   0.,   0.],
 ```
 ### 最小二乘拟合
 #### Least Square
+最小二乘拟合与插值不同。在插值点处，插值函数的值是精确的，但不能保证其他点的状况。而拟合则要求均方误差最小，在给定数据点的值并不一定准确。我们利用矩阵形式来推导，发现当均方误差最小时（一阶条件），可以解出![](http://latex.codecogs.com/gif.latex?A^{\tau}Ac=A^{\tau}y)。在非奇异条件下，可求解![](http://latex.codecogs.com/gif.latex?c=(A{\tau}A)^{-1}A^{\tau}y)
 
 <--	## 数值积分/Numerical Integral
 	### 插值型数值积分
