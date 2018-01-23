@@ -27,6 +27,7 @@ From our perspective, some methods in this lesson are really interesting and fan
     * [Lagrange插值/Lagrangian Interpolation](#lagrangian-interpolation)
     * [Newton插值/Newton Interpolation](#newton-interpolation)
     * [最小二乘拟合/Least Square Fitting](#least-square)
+    * [插值与拟合绘图/Plot Illustration](#plot-illustration)
 	
 --------------------
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
@@ -225,7 +226,7 @@ L=
 #### Property Analysis
 
 ## 线性方程组迭代法/Recursive way to solve the System of Linear Equation
-目标依然是求解线性方程组![](http://latex.codecogs.com/gif.latex?Ax=b,~A\in\mathbb{R}^{n~\times~n},~b\in\mathbb{R}^n)
+目标依然是求解线性方程组![](http://latex.codecogs.com/gif.latex?Ax=b,~A\in\mathbb{R}^{n{\times}n},~b\in\mathbb{R}^n)
 此处的迭代法类似于[迭代法](#recursive-method)，但迭代对象换成了矩阵和向量，依旧选择合适的 ![](http://latex.codecogs.com/gif.latex?g(\cdot)) 使得
 
 ![](http://latex.codecogs.com/gif.latex?X_{n+1}=g(X_n),~X\in\mathbb{R}^n)
@@ -515,18 +516,61 @@ array([[  0.,   2.,   0.,   0.,   0.],
 ```
 ### 最小二乘拟合
 #### Least Square
-最小二乘拟合与插值不同。在插值点处，插值函数的值是精确的，但不能保证其他点的状况。而拟合则要求均方误差最小，在给定数据点的值并不一定准确。我们利用矩阵形式来推导，发现当均方误差最小时（一阶条件），可以解出![](http://latex.codecogs.com/gif.latex?A^{\tau}Ac=A^{\tau}y)。在非奇异条件下，可求解![](http://latex.codecogs.com/gif.latex?c=(A{\tau}A)^{-1}A^{\tau}y)
+最小二乘拟合与插值不同。在插值点处，插值函数的值是精确的，但不能保证其他点的状况。而拟合则要求均方误差最小，在给定数据点的值并不一定准确。我们利用矩阵形式来推导，发现当均方误差最小时（一阶条件），可以解出![](http://latex.codecogs.com/gif.latex?A^{\tau}Ac=A^{\tau}y)。在非奇异条件下，可求解![](http://latex.codecogs.com/gif.latex?c=(A^{\tau}A)^{-1}A^{\tau}y)。
 
-<--	## 数值积分/Numerical Integral
-	### 插值型数值积分
-	### Newton-Cotes公式/Newton-Cotes Method
-	#### 梯形公式
-	#### Sinpson公式
-	### 复化求积公式
-	#### 复化梯形公式
-	#### 复化Sinpson公式
-	### Gauss求积公式
-	## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
-	### Euler法/Euler Method
-	### 改进的Euler法/Improved Euler Method -->
+为此，我们假设拟合函数为：
+
+![](http://latex.codecogs.com/gif.latex?f(x)=c_0g_0(x)+c_1g_1(x)+c_2g_2(x))
+
+实现代码如下：
+``` python
+def LeastSquare(data,g1,g2,g3):
+    dim = data.shape[0]
+    A = np.zeros((dim,3))
+    A[:,0] = g1(data[:,0])
+    A[:,1] = g2(data[:,0])
+    A[:,2] = g3(data[:,0])
+    if np.linalg.det(A.T@A)!=0 :
+        result = (np.linalg.inv(A.T@A))@(A.T)@(data[:,1])
+        print("Coefficient: ",result)
+        return result
+    else:
+        print("The inverse of A'A doesn't exist")
+        return 0
+```
+该部分的代码存在偷懒的部分，我们为了简单，只选取了三个可能的函数。假设我们要利用数据点![](http://latex.codecogs.com/gif.latex?(1,-3),~(2,-6),~(3,11),~(4,7),~(5,14))和函数![](http://latex.codecogs.com/gif.latex?e^x,~x,~1/x)完成最小二乘拟合，则需要：
+``` python
+data = np.array([[1,-3],
+                [2,-6],
+                [3,11],
+                [4,7],
+                [5,14]])
+g1 = lambda x: np.exp(x)
+g2 = lambda x: x
+g3 = lambda x: 1/x
+LeastSquare(data,g1,g2,g3)
+```
+得到结果为：
+```
+Coefficient:  [ 0.02822754  2.23012035 -7.19255383]
+```
+即拟合结果为![](http://latex.codecogs.com/gif.latex?f(x)=0.02823e^x+2.23x-7.193/x)
+
+### 插值与拟合绘图
+#### Plot Illustration
+如果我们希望知道插值与拟合的效果如何，一个最简单的方法就是通过图像进行分析。尽管课本中并不要求我们绘图，但是我们在这里尝试实现这一点，因为这样很Coooooool！
+
+
+## 数值积分/Numerical Integral
+### 插值型数值积分
+### Newton-Cotes公式/Newton-Cotes Method
+#### 梯形公式
+#### Sinpson公式
+### 复化求积公式
+#### 复化梯形公式
+#### 复化Sinpson公式
+### Gauss求积公式
+## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
+### Euler法/Euler Method
+### 改进的Euler法/Improved Euler Method -->
 
