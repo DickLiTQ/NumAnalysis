@@ -373,10 +373,14 @@ def Polynomial_predict(data,x):
     return result
 ```
 例如：
-> 求解下方数据对应的多项式：
-  (x1,y1)=(1,0)
-  (x2,y2)=(2,4)
-  (x3,y3)=(3,8)
+> 求解下方数据对应的插值多项式：
+
+(x1,y1)=(1,0)
+
+(x2,y2)=(2,4)
+
+(x3,y3)=(3,8)
+
 并预测在x=1.5时的值。
 
 代码为：
@@ -400,7 +404,7 @@ array([-4.,  4., -0.])
 
 ![](http://latex.codecogs.com/gif.latex?L=l_0(x)y_0+l_1(x)y_1+\dots+l_n(x)y_n)
 
-其中![](http://latex.codecogs.com/gif.latex?l_i(x)=\frac{(x-x_0)\dots(x-x_{i-1})(x-x_{i+1})(x-x_n)}{(x_i-x_0)\dots(x_i-x_{i-1})(x_i-x_{i+1})(x_i-x_n)}
+其中![](http://latex.codecogs.com/gif.latex?l_i(x)=\frac{(x-x_0)\dots(x-x_{i-1})(x-x_{i+1})(x-x_n)}{(x_i-x_0)\dots(x_i-x_{i-1})(x_i-x_{i+1})(x_i-x_n)})
 
 代码如下：
 ``` python 
@@ -427,10 +431,87 @@ def Lagrangian_predict(data,y):
     x = sp.Symbol('x')
     return result.evalf(subs = {x:y})
 ```
-要求解
+选取课本案例：
+
+> 求解下方数据对应的拉格朗日Lagrangian插值多项式：
+
+(x1,y1)=(1,-1)
+
+(x2,y2)=(2,-1)
+
+(x3,y3)=(3,1)
+
+并预测在x=1.5时的值。
+代码如下：
+``` python
+data = np.array([[1,-1],
+                 [2,-1],
+                 [3,1]])
+Lagrangian(data)
+Lagrangian_predict(data,1.5)
+```
+结果如下：
+```
+x**2 - 3*x + 1
+-1.25000000000000
+```
 
 ### Newton插值
 #### Newton Interpolation
+此处牛顿插值需要使用差商的概念。
+
+绘制差商表：
+``` python
+def Divided_difference(data):
+    dim = data.shape[0]
+    D = np.zeros((dim,dim+1))
+    D[:,0] = data[:,0]
+    D[:,1] = data[:,1]
+    diff = 1
+    for column in range(2,dim+1):
+        for row in range(diff,dim):
+            D[row,column] = (D[row,column-1]-D[row-1,column-1])/(D[row,0]-D[row-diff,0])
+        diff = diff+1
+    return D
+```
+得出牛顿插值公式和拟合结果：
+``` python
+def Newton(data):
+    Coefficient = Divided_difference(data)
+    x = sp.Symbol('x')
+    Newton = 0
+    X = 1
+    dim = data.shape[0]
+    for index in range(dim):
+        Newton = Newton + Coefficient[index,index+1]*X
+        X = X*(x-Coefficient[index,0])
+    return Newton.expand()
+def Newton_predict(data,y):
+    result = Newton(data)
+    x = sp.Symbol('x')
+    return result.evalf(subs = {x:y})
+```
+给定数据并求在x=1.5的拟合值：
+>(0,2), (1,-3), (2,-6), (3,11)。
+运行代码：
+``` python
+data = np.array([[0,2],
+                [1,-3],
+                [2,-6],
+                [3,11]])
+Divided_difference(data)
+Newton(data)
+Newton_predict(data,1.5)
+```
+得到差商表（第一列为x，第二列为y，其后为一阶、二阶、三阶差商）和牛顿插值多项式：
+```
+array([[  0.,   2.,   0.,   0.,   0.],
+       [  1.,  -3.,  -5.,   0.,   0.],
+       [  2.,  -6.,  -3.,   1.,   0.],
+       [  3.,  11.,  17.,  10.,   3.]])
+3.0*x**3 - 8.0*x**2 + 2.0   
+-5.87500000000000
+```
 ### 最小二乘拟合
 #### Least Square
 
