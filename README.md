@@ -239,6 +239,9 @@ Jacobi迭代的格式为![](http://latex.codecogs.com/gif.latex?X_{n+1}=D^{-1}(L
 
 其中，矩阵D, L, U的分解为：
 ``` python
+import numpy as np
+import sympy as sp
+
 def Decomposition(A):
     dim = A.shape[0]
     D = np.zeros_like(A)
@@ -333,14 +336,99 @@ Iteration 10: x= [ 3.00000001  2.          1.        ]
 
 ## 插值与拟合/Interpolation and Fitting
 ### 多项式插值
+#### Polynomial Interpolation
 多项式具有以下的形式
 
 ![](http://latex.codecogs.com/gif.latex?f(x)=c_0+c_1x+c_2x^2+\dots+c_nx^n)
 
+多项式插值的原理是带入数据从而解出多项式中的系数，简而言之，就是解一个线性方程组，方程数等于所给的数据对![](http://latex.codecogs.com/gif.latex?(x,y))的数量，而多项式最高次数为方程数减1。出于简化的目的，我们不想在这里研究线性方程组解的个数究竟是无、唯一还是无穷，我们只考虑最简单的情况，即n对数据解n-1次多项式的情形。
 
-#### Polynomial Interpolation
+``` python
+import numpy as np
+import sympy as sp
+""" Data Input: We input data in an array which has the form of (x,y)
+
+data = np.array([[1,-1],
+                 [2,-1],
+                 [3,1]
+                 ])
+"""
+def Polynomial(data):
+    dim = data.shape[0]
+    A = np.zeros((dim,dim))
+    for c in range(dim):
+        g = lambda x:x**c
+        A[:,c] = g(data[:,0])
+    soln = np.linalg.solve(A,data[:,1])
+    for index in range(dim):
+        print("c%d = %r"%(index,soln[index]))
+    return soln
+
+def Polynomial_predict(data,x):
+    coefficient = Polynomial(data)
+    result = 0
+    for index in range(len(coefficient)):
+        g = lambda x: x**index
+        result = result + g(x)*coefficient[index]
+    return result
+```
+例如：
+> 求解下方数据对应的多项式：
+  (x1,y1)=(1,0)
+  (x2,y2)=(2,4)
+  (x3,y3)=(3,8)
+并预测在x=1.5时的值。
+
+代码为：
+``` python
+data = np.array([[1,0],
+                 [2,4],
+                 [3,8]])
+Polynomial(data)
+Polynomial_predict(data,1.5)
+```
+结果:
+```
+array([-4.,  4., -0.])
+2.0
+```
+即![](http://latex.codecogs.com/gif.latex?c_0=-4,~c_1=4,~c_2=0,~f(1.5)=2)
+
 ### Lagrange插值
 #### Lagrangian Interpolation
+拉格朗日插值公式原理如下：
+
+![](http://latex.codecogs.com/gif.latex?L=l_0(x)y_0+l_1(x)y_1+\dots+l_n(x)y_n)
+
+其中![](http://latex.codecogs.com/gif.latex?l_i(x)=\frac{(x-x_0)\dots(x-x_{i-1})(x-x_{i+1})(x-x_n)}{(x_i-x_0)\dots(x_i-x_{i-1})(x_i-x_{i+1})(x_i-x_n)}
+
+代码如下：
+``` python 
+def li_calc(data,i):
+    dim = data.shape[0]
+    x = sp.Symbol('x')
+    li = 1
+    for index in range(dim):
+        if index != i:
+            li = li*(x-data[index,0])/(data[i,0]-data[index,0])
+        else:
+            li = li
+    return li
+
+def Lagrangian(data):
+    dim = data.shape[0]
+    L = 0
+    for index in range(dim):
+        L = L +li_calc(data,index)*data[index,1]
+    return L.expand()
+
+def Lagrangian_predict(data,y):
+    result = Lagrangian(data)
+    x = sp.Symbol('x')
+    return result.evalf(subs = {x:y})
+```
+要求解
+
 ### Newton插值
 #### Newton Interpolation
 ### 最小二乘拟合
