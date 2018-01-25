@@ -659,7 +659,7 @@ def sinpson(data,a,b):
 ##### Composite Trapezium
 在每个小区间![](http://latex.codecogs.com/gif.latex?[x_{i-1},x_i])上使用梯形公式再加总
 
-![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx=\frac{h}{2}(f(a)+2\sum_{i=1}^{n-1}f(x_i)+f(b))
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx\frac{h}{2}(f(a)+2\sum_{i=1}^{n-1}f(x_i)+f(b)))
 
 
 
@@ -667,7 +667,7 @@ def sinpson(data,a,b):
 ##### Composite Sinpson
 在每个小区间![](http://latex.codecogs.com/gif.latex?[x_{i-1},x_i])上使用复化Sinpson公式再加总
 
-![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx=\frac{2h}{6}(f(a)+4\sum_{i=1}^{n}f(x_{2i-1})+2\sum_{i=1}^{n}f(x_{2i})+f(b)))
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx\frac{2h}{6}(f(a)+4\sum_{i=1}^{n}f(x_{2i-1})+2\sum_{i=1}^{n}f(x_{2i})+f(b)))
 
 ### Gauss求积公式
 ## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
