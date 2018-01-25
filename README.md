@@ -732,9 +732,96 @@ Euler法使用折现逼近曲线，通过初值条件逐次迭代得出整条曲
 
 ![](http://latex.codecogs.com/gif.latex?\frac{dy}{dx}=f(x,y)~\Rightarrow~y_{n+1}=y_n+hf(x_n,y_n))
 
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+
+""" Input: 
+Interval: [a,b]
+Step: h
+Differential: f(x,y)
+Initial point: y(a) = y0
+"""
+
+def EulerMethod(a,b,h,f,y0):
+    if b>a:
+        step = int((b-a)/h+1)
+        x = np.linspace(a,b,step)
+        y = np.zeros_like(x)
+        y[0]=y0
+        for index in range(1,step):
+            y[index] = y[index-1] + h*f(x[index-1],y[index-1])
+        return y
+    else:
+        return "Error"
+```
+
 ### 改进的Euler法
 #### Improved Euler Method
 改进的Euler法在迭代过程中加入Euler法的估计值，使得迭代更加精确
 
 ![](http://latex.codecogs.com/gif.latex?\frac{dy}{dx}=f(x,y)~\Rightarrow~y_{n+1}=y_n+\frac{h}{2}\left(f(x_n,y_n)+f(x_{n+1},\bar{y}_{n+1})\right))
+
+``` python
+def I_EulerMethod(a,b,h,f,y0):
+    if b>a:
+        step = int((b-a)/h+1)
+        x = np.linspace(a,b,step)
+        y = np.zeros_like(x)
+        ye = np.zeros_like(x)
+        y[0] = y0
+        ye[0] = y0
+        for index in range(1,step):
+            ye[index] = ye[index-1] + h*f(x[index-1],ye[index-1])
+            y[index] = y[index-1] + 0.5*h*(f(x[index-1],y[index-1])+f(x[index],ye[index]))
+        return y
+    else:
+        return "Error"
+```
+
+此外，当我们知道解析解时，我们可以利用绘图得方法观察误差。为了实现这个很酷的功能，我们定义下方函数：
+
+``` python
+def Draw(a,b,h,f,y0,ft):
+    step = int((b-a)/h+1)
+    x = np.linspace(a,b,step)
+    fig, ax = plt.subplots(dpi=120)
+    ye = EulerMethod(a,b,h,f,y0)
+    yie = I_EulerMethod(a,b,h,f,y0)
+    yt = ft(x)
+    ax.plot(x,ye,marker='o',color='r',alpha=0.5,label='Euler Method')
+    ax.plot(x,yie,marker='x',color='b',alpha=0.5,label='Improved Euler Method')
+    ax.plot(x,yt,marker='v',color='g',alpha=0.5,label='Explicit Function')
+    ax.legend()
+    fig.show()
+    return 0
+```
+
+作为例子，我们尝试求解以下的例子
+<div align="center">
+<img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/ODE_eg1.gif" align=center />
+</div>
+
+``` python
+a = 0
+b = 1
+h = 0.1
+f = lambda x,y: y-2*x/y
+y0 = 1
+ft = lambda x: np.sqrt(1+2*x)
+
+EulerMethod(a,b,h,f,y0)
+I_EulerMethod(a,b,h,f,y0)
+Draw(a,b,h,f,y0,ft)
+```
+
+求得结果为
+```
+array([ 1.        ,  1.1       ,  1.19181818,  1.27743783,  1.3582126 ,
+        1.43513292,  1.50896625,  1.58033824,  1.64978343,  1.71777935,
+        1.78477083])
+array([ 1.        ,  1.09590909,  1.18438953,  1.26711005,  1.34524979,
+        1.41969469,  1.49114658,  1.56018901,  1.62733006,  1.69303203,
+        1.7577335 ])
+```
 
