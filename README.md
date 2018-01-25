@@ -40,7 +40,6 @@ From our perspective, some methods in this lesson are really interesting and fan
         * [Euler公式/Euler Method]
 	    * [改进的Euler法/Improved Euler Method]
 	
---------------------
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
 ### 迭代法
@@ -661,7 +660,17 @@ def sinpson(data,a,b):
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx\frac{h}{2}(f(a)+2\sum_{i=1}^{n-1}f(x_i)+f(b)))
 
-
+``` python
+def com_trapezium(data):
+    dim = data.shape[0]
+    a = data[0,0]
+    b = data[dim-1,0]
+    h = (b-a)/(dim-1)
+    result = data[0,1]+data[dim-1,1]
+    for index in range(1,dim-1):
+        result = result + 2*data[index,1]
+    return result*h/2
+```
 
 #### 复化Sinpson公式
 ##### Composite Sinpson
@@ -669,8 +678,46 @@ def sinpson(data,a,b):
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx\frac{2h}{6}(f(a)+4\sum_{i=1}^{n}f(x_{2i-1})+2\sum_{i=1}^{n}f(x_{2i})+f(b)))
 
+``` python
+def com_sinpson(data):
+    dim = data.shape[0]
+    a = data[0,0]
+    b = data[dim-1,0]
+    h = (b-a)/(dim-1)*2
+    result = data[0,1]+data[dim-1,1]
+    #times = (dim-1)/2
+    for index in range(1,dim-1):
+        if index%2 != 0:
+            result = result + 4*data[index,1]
+        else:
+            result = result + 2*data[index,1]
+    return result*h/6
+```
+
+例如我们要求解以下问题
+![Example of Composite Integral](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/example_of_numerical_integral.png)
+
+使用如下代码求解：
+``` python
+data = np.array([[0,1],
+                 [0.125,0.997398],
+                 [0.25,0.989688],
+                 [0.375,0.976727],
+                 [0.5,0.958851],
+                 [0.625,0.936156],
+                 [0.75,0.908858],
+                 [0.875,0.877193],
+                 [1,0.841471]])
+com_trapezium(data)
+com_sinpson(data)
+```
+运行结果为
+```
+0.94570081249999993
+0.94609004166666677
+```
 ### Gauss求积公式
 ## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
 ### Euler法/Euler Method
-### 改进的Euler法/Improved Euler Method -->
+### 改进的Euler法/Improved Euler Method
 
