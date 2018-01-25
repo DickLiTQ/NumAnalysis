@@ -599,8 +599,9 @@ def plot(data):
     fig.show()
 plot(data)
 ```
-![Figure Output](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_Interpolation%26Fitting.png)
-
+<div align="center">
+<img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_Interpolation%26Fitting.png" width = "600" height = "400" alt="Figure Output" align=center />
+</div>
 
 
 ## 数值积分/Numerical Integral
@@ -695,7 +696,9 @@ def com_sinpson(data):
 ```
 
 例如我们要求解以下问题
-![Example of Composite Integral](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/example_of_numerical_integral.png)
+<div align="center">
+<img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/example_of_numerical_integral.png" width = "600" height = "400" alt="Figure Output" align=center />
+</div>
 
 使用如下代码求解：
 ``` python
