@@ -609,7 +609,7 @@ plot(data)
 利用插值函数![](http://latex.codecogs.com/gif.latex?L(x))对被积函数![](http://latex.codecogs.com/gif.latex?f(x))进行估计，再利用插值函数的优良积分性质求解积分
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx{\approx}\int_a^bL(x)dx=\int_a^b\sum_{i}l_i(x)y_idx=\sum_iy_i\int_a^bl_i(x)dx)
 ### Newton-Cotes公式
-#### Newton-Cotes Method
+#### Newton-Cotes
 ![](http://latex.codecogs.com/gif.latex?f(x)=0)
 #### 梯形公式
 #### Sinpson公式
