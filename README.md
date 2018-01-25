@@ -148,10 +148,10 @@ Terminal: The final result is 1.3652300134140969
 
 ![](http://latex.codecogs.com/gif.latex?Ax=b)
 
-其中![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n},b\in\mathbb{R}^n,det(A)\neq0)
+其中![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n{\times}n},b\in\mathbb{R}^n,det(A)\neq0)
 ### 杜利特尔分解
 #### Doolittle Decomposition
-我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n~\times~n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
+我们考虑将系数矩阵![](http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{n{\times}n})分解为一个同维度的下三角矩阵![](http://latex.codecogs.com/gif.latex?L)和一个同维度的上三角矩阵![](http://latex.codecogs.com/gif.latex?U)的乘积，即
 
 ![LU Decomposition](https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/4ad6e37ba2565a0f628ed0965fefe81593c84547/LUDecomposition.gif)
 
