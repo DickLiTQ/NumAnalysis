@@ -31,13 +31,13 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 数值积分/Numerical Integral
     * [插值型数值积分]
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
-            * [梯形公式]
+        * [梯形公式]
 	    * [Sinpson公式]
     * [复化求积公式]
-            * [复化梯形公式]
+        * [复化梯形公式]
 	    * [复化Sinpson公式]
    * [常微分方程数值解/Numerical Solution in Ordinary Differential Equation]
-            * [Euler公式/Euler Method]
+        * [Euler公式/Euler Method]
 	    * [改进的Euler法/Improved Euler Method]
 	
 --------------------
@@ -606,7 +606,11 @@ plot(data)
 
 ## 数值积分/Numerical Integral
 ### 插值型数值积分
-### Newton-Cotes公式/Newton-Cotes Method
+利用插值函数![](http://latex.codecogs.com/gif.latex?L(x))对被积函数![](http://latex.codecogs.com/gif.latex?f(x))进行估计，再利用插值函数的优良积分性质求解积分
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx{\approx}\int_a^bL(x)dx=\int_a^b\sum_{i}l_i(x)y_idx=\sum_iy_i\int_a^bl_i(x)dx)
+### Newton-Cotes公式
+#### Newton-Cotes Method
+![](http://latex.codecogs.com/gif.latex?f(x)=0)
 #### 梯形公式
 #### Sinpson公式
 ### 复化求积公式
