@@ -725,6 +725,7 @@ com_sinpson(data)
 <div align="center">
 <img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/ODE.gif" align=center />
 </div>
+
 ### Euler法
 #### Euler Method
 Euler法使用折现逼近曲线，通过初值条件逐次迭代得出整条曲线
