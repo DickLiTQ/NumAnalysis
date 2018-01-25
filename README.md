@@ -29,7 +29,7 @@ From our perspective, some methods in this lesson are really interesting and fan
     * [最小二乘拟合/Least Square Fitting](#least-square)
     * [插值与拟合绘图/Plot Illustration](#plot-illustration)
   * 数值积分/Numerical Integral
-    * [插值型数值积分]
+    * 插值型数值积分
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
        * [梯形公式/Trapezium](#trapezium-rule)
        * [Sinpson公式/Sinpson](#sinpson-rule)
