@@ -31,8 +31,8 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 数值积分/Numerical Integral
     * [插值型数值积分]
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
-        * [梯形公式]
-	    * [Sinpson公式]
+        * [梯形公式/Trapezium]（#trapezium）
+	    * [Sinpson公式/Sinpson](#sinpson)
     * [复化求积公式]
         * [复化梯形公式]
 	    * [复化Sinpson公式]
@@ -608,11 +608,25 @@ plot(data)
 ### 插值型数值积分
 利用插值函数![](http://latex.codecogs.com/gif.latex?L(x))对被积函数![](http://latex.codecogs.com/gif.latex?f(x))进行估计，再利用插值函数的优良积分性质求解积分
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx{\approx}\int_a^bL(x)dx=\int_a^b\sum_{i}l_i(x)y_idx=\sum_iy_i\int_a^bl_i(x)dx)
+
+我们依次将![](http://latex.codecogs.com/gif.latex?f(x)=1,~x,~x^2,~x^3,\dots,~x^m)带入，当存在某个正整数![](http://latex.codecogs.com/gif.latex?m)成立但对于![](http://latex.codecogs.com/gif.latex?m+1)不成立时，则称数值积分代数精度为![](http://latex.codecogs.com/gif.latex?m)阶
 ### Newton-Cotes公式
 #### Newton-Cotes
-![](http://latex.codecogs.com/gif.latex?f(x)=0)
+牛顿-科特斯公式相比于一般插值型积分，其特点在于将积分区间等距分割，对于区间![](http://latex.codecogs.com/gif.latex?[a,b])的等距分割，我们只需要利用步长![](http://latex.codecogs.com/gif.latex?h)和分割段数![](http://latex.codecogs.com/gif.latex?n)即可刻画整个数值积分。
+
+![](http://latex.codecogs.com/gif.latex?x_i=x_0+nh)
+
 #### 梯形公式
+##### Trapezium
+当区间被分割为1份（即不分割）时，牛顿-柯特斯公式退化成梯形公式：
+
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{2}(f(a)+f(b)))
+
 #### Sinpson公式
+当区间被分割为2份（即不分割）时，牛顿-柯特斯公式退化成Sinpson公式：
+
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{6}(f(a)+4f(\frac{a+b}{2})+f(b)))
+
 ### 复化求积公式
 #### 复化梯形公式
 #### 复化Sinpson公式
