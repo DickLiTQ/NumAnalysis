@@ -31,12 +31,12 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 数值积分/Numerical Integral
     * [插值型数值积分]
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
-        * [梯形公式/Trapezium]（#trapezium）
-	    * [Sinpson公式/Sinpson](#sinpson)
-    * [复化求积公式]
-        * [复化梯形公式]
-	    * [复化Sinpson公式]
-   * [常微分方程数值解/Numerical Solution in Ordinary Differential Equation]
+       * [梯形公式/Trapezium](#trapezium）
+       * [Sinpson公式/Sinpson](#sinpson)
+    * 复化求积公式/Composite Integral
+       * [复化梯形公式](#composite-trapezium)
+       * [复化Sinpson公式](#composite-sinpson)
+   * 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
         * [Euler公式/Euler Method]
 	    * [改进的Euler法/Improved Euler Method]
 	
@@ -622,14 +622,42 @@ plot(data)
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{2}(f(a)+f(b)))
 
+``` python
+def trapezium(data,a,b):
+    " Integral from ath data to bth data "
+    #dim = b-a
+    x = data[a-1,0]
+    y = data[b-1,0]
+    fx = data[a-1,1]
+    fy = data[b-1,1]
+    return (y-x)/2*(fx+fy)
+```
 #### Sinpson公式
 当区间被分割为2份（即不分割）时，牛顿-柯特斯公式退化成Sinpson公式：
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{6}(f(a)+4f(\frac{a+b}{2})+f(b)))
 
-### 复化求积公式
+``` python
+def sinpson(data,a,b):
+    " Integral from ath data to bth data "
+    dim = b-a
+    if dim%2 != 0:
+        return "Error"
+    else:
+        x = data[a-1,0]
+        #xy = data[(b+a)/2-1,0]
+        y = data[b-1,0]
+        fx = data[a-1,0]
+        fy = data[b-1,0]
+        fxy = data[(b+a)/2-1,0]
+        return (y-x)/6*(fx+4*fxy+fy)
+```
+
+### 复化求积公式/Composite Integration
 #### 复化梯形公式
+##### Composite Trapezium
 #### 复化Sinpson公式
+##### Composite Sinpson
 ### Gauss求积公式
 ## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
 ### Euler法/Euler Method
