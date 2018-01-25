@@ -31,11 +31,11 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 数值积分/Numerical Integral
     * [插值型数值积分]
     * [牛顿科特斯公式/Newton-Cotes Method](#newton-cotes)
-       * [梯形公式/Trapezium](#trapezium）
-       * [Sinpson公式/Sinpson](#sinpson)
+       * [梯形公式/Trapezium](#trapezium-rule)
+       * [Sinpson公式/Sinpson](#sinpson-rule)
     * 复化求积公式/Composite Integral
-       * [复化梯形公式](#composite-trapezium)
-       * [复化Sinpson公式](#composite-sinpson)
+       * [复化梯形公式/Composite Trapezium](#composite-trapezium)
+       * [复化Sinpson公式/Composite Sinpson](#composite-sinpson)
    * 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
         * [Euler公式/Euler Method]
 	    * [改进的Euler法/Improved Euler Method]
@@ -617,7 +617,7 @@ plot(data)
 ![](http://latex.codecogs.com/gif.latex?x_i=x_0+nh)
 
 #### 梯形公式
-##### Trapezium
+##### Trapezium Rule
 当区间被分割为1份（即不分割）时，牛顿-柯特斯公式退化成梯形公式：
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{2}(f(a)+f(b)))
@@ -633,6 +633,7 @@ def trapezium(data,a,b):
     return (y-x)/2*(fx+fy)
 ```
 #### Sinpson公式
+##### Sinpson Rule
 当区间被分割为2份（即不分割）时，牛顿-柯特斯公式退化成Sinpson公式：
 
 ![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx\approx\frac{b-a}{6}(f(a)+4f(\frac{a+b}{2})+f(b)))
@@ -656,8 +657,18 @@ def sinpson(data,a,b):
 ### 复化求积公式/Composite Integration
 #### 复化梯形公式
 ##### Composite Trapezium
+在每个小区间![](http://latex.codecogs.com/gif.latex?[x_{i-1},x_i])上使用梯形公式再加总
+
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx=\frac{h}{2}(f(a)+2\sum_{i=1}^{n-1}f(x_i)+f(b))
+
+
+
 #### 复化Sinpson公式
 ##### Composite Sinpson
+在每个小区间![](http://latex.codecogs.com/gif.latex?[x_{i-1},x_i])上使用复化Sinpson公式再加总
+
+![](http://latex.codecogs.com/gif.latex?\int_a^bf(x)dx=\sum_{i=0}^n\int_{x_{i-1}}^{x_i}f(x)dx\approx=\frac{2h}{6}(f(a)+4\sum_{i=1}^{n}f(x_{2i-1})+2\sum_{i=1}^{n}f(x_{2i})+f(b)))
+
 ### Gauss求积公式
 ## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
 ### Euler法/Euler Method
