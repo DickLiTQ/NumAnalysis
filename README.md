@@ -37,8 +37,8 @@ From our perspective, some methods in this lesson are really interesting and fan
        * [复化梯形公式/Composite Trapezium](#composite-trapezium)
        * [复化Sinpson公式/Composite Sinpson](#composite-sinpson)
    * 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
-        * [Euler公式/Euler Method]
-	    * [改进的Euler法/Improved Euler Method]
+        * [Euler公式/Euler Method](#euler-method)
+	    * [改进的Euler法/Improved Euler Method](#improved-euler-method)
 	
 ## 非线性方程数值解/Numerical Solution to Nonlinear Equation
 
@@ -721,6 +721,19 @@ com_sinpson(data)
 ```
 ### Gauss求积公式
 ## 常微分方程数值解/Numerical Solution in Ordinary Differential Equation
-### Euler法/Euler Method
-### 改进的Euler法/Improved Euler Method
+在此仅考虑常微分方程初值问题
+<div align="center">
+<img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/ODE.gif" align=center />
+</div>
+### Euler法
+#### Euler Method
+Euler法使用折现逼近曲线，通过初值条件逐次迭代得出整条曲线
+
+![](http://latex.codecogs.com/gif.latex?\frac{dy}{dx}=f(x,y)~\Rightarrow~y_{n+1}=y_n+hf(x_n,y_n))
+
+### 改进的Euler法
+#### Improved Euler Method
+改进的Euler法在迭代过程中加入Euler法的估计值，使得迭代更加精确
+
+![](http://latex.codecogs.com/gif.latex?\frac{dy}{dx}=f(x,y)~\Rightarrow~y_{n+1}=y_n+\frac{h}{2}\left(f(x_n,y_n)+f(x_{n+1},\bar{y}_{n+1})\right))
 
