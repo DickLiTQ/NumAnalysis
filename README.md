@@ -824,4 +824,7 @@ array([ 1.        ,  1.09590909,  1.18438953,  1.26711005,  1.34524979,
         1.41969469,  1.49114658,  1.56018901,  1.62733006,  1.69303203,
         1.7577335 ])
 ```
+<div align="center">
+<img src="https://raw.githubusercontent.com/DickLiTQ/NumAnalysis/master/Figure_ODE.png" align=center />
+</div>
 
