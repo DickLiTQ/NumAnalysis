@@ -15,7 +15,7 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 非线性方程数值解/Numerical Solution to Nonlinear Equation
 	* [迭代法/Recursive Method](#recursive-method)
 	* [牛顿法/Newton Method](#newton-method)
-	* [牛顿-拉夫逊法/Newton-Ralfsnn's method](#newton-ralfsnn's-method)
+	* [牛顿-拉夫逊法/Newton-Ralfsnn's method](#newton-ralfsnn-method)
 	* [双点快速截弦法/](#双点快速截弦法/)
   * 线性方程组LU分解/System of Linear Equation——LU Decomposition
 	* [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
@@ -145,7 +145,7 @@ Terminal: The final result is 1.3652300134140969
 
 ### 牛顿-拉夫逊法
 #### Newton-Ralfsnn's method
-非线性方程组的求解是一个更加困难的问题，非线性方程组的解往往具有多个，也可能不存在，并且对初值十分敏感，我们在这里使用![牛顿-拉夫逊法](https://en.wikipedia.org/wiki/Newton%27s_method)进行非线性方程组的迭代求解。这种方法是牛顿法的推广，但存在很多的局限性。
+非线性方程组的求解是一个更加困难的问题，非线性方程组的解往往具有多个，也可能不存在，并且对初值十分敏感，我们在这里使用[牛顿-拉夫逊法](https://en.wikipedia.org/wiki/Newton%27s_method)进行非线性方程组的迭代求解。这种方法是牛顿法的推广，但存在很多的局限性。
 
 ![](http://latex.codecogs.com/gif.latex?X_{n+1}=X_{n}-(F'(X_n))^{-1}F(X_n))，其中![](http://latex.codecogs.com/gif.latex?F'(X_n))为Jacobi矩阵（全体一阶偏导矩阵）
 
