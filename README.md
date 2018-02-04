@@ -15,6 +15,7 @@ From our perspective, some methods in this lesson are really interesting and fan
   * 非线性方程数值解/Numerical Solution to Nonlinear Equation
 	* [迭代法/Recursive Method](#recursive-method)
 	* [牛顿法/Newton Method](#newton-method)
+	* [牛顿-拉夫逊法/Newton-Ralfsnn's method](#newton-ralfsnn's-method)
 	* [双点快速截弦法/](#双点快速截弦法/)
   * 线性方程组LU分解/System of Linear Equation——LU Decomposition
 	* [杜利特尔分解/Doolittle Decomposition](#doolittle-decomposition)
@@ -141,6 +142,95 @@ Iteration 3: x=1.3652300139161466, difference=-3.2000958479994068e-05
 Iteration 4: x=1.3652300134140969, difference=-5.0204973511824846e-10 <= Residual=1e-05
 Terminal: The final result is 1.3652300134140969
 ```
+
+### 牛顿-拉夫逊法
+#### Newton-Ralfsnn's method
+非线性方程组的求解是一个更加困难的问题，非线性方程组的解往往具有多个，也可能不存在，并且对初值十分敏感，我们在这里使用![牛顿-拉夫逊法](https://en.wikipedia.org/wiki/Newton%27s_method)进行非线性方程组的迭代求解。这种方法是牛顿法的推广，但存在很多的局限性。
+
+![](http://latex.codecogs.com/gif.latex?X_{n+1}=X_{n}-(F'(X_n))^{-1}F(X_n))，其中![](http://latex.codecogs.com/gif.latex?F'(X_n))为Jacobi矩阵（全体一阶偏导矩阵）
+
+从简化的角度，我们仅分析三个方程组三个未知数的情形，解决代码如下：
+``` python
+def Jacobi_Matrix(f1,f2,f3,ak,bk,ck):
+    a = sp.Symbol('a')
+    b = sp.Symbol('b')
+    c = sp.Symbol('c')
+    F = [f1,f2,f3]
+    X = [a,b,c]
+    n = len(F)
+#    F_1 = np.array([[a,b,c],
+#                    [a,b,c],
+#                    [a,b,c]])
+    F_1v = np.zeros((n,n))
+    for i in range(n):
+        for j in range(n):
+#            F_1[i,j] = sp.diff(F[i],X[j])
+            storage = sp.diff(F[i],X[j])
+            F_1v[i,j] = storage.evalf(subs = {a:ak,b:bk,c:ck})
+    #F1v = F_1.evalf(subs = {X:X0})
+    return np.linalg.inv(F_1v)
+
+def Newton_Recursive_Multi(f1,f2,f3,a0,b0,c0,n):
+    a = sp.Symbol('a')
+    b = sp.Symbol('b')
+    c = sp.Symbol('c')
+    x = np.zeros((3,n+1))
+    x[0,0] = a0
+    x[1,0] = b0
+    x[2,0] = c0
+    for k in range(n):
+        if np.min(np.abs(x[:,k+1]-x[:,k]))>100:
+            return "Error with divergence"
+#            print("Error")
+        else:    
+            if np.max(np.abs(x[:,k+1]-x[:,k]))>1e-5:
+                F1 = f1.evalf(subs = {a:x[0,k],b:x[1,k],c:x[2,k]})
+                F2 = f2.evalf(subs = {a:x[0,k],b:x[1,k],c:x[2,k]})
+                F3 = f3.evalf(subs = {a:x[0,k],b:x[1,k],c:x[2,k]})
+                F1 = float(F1)
+                F2 = float(F2)
+                F3 = float(F3)
+                F = np.array([F1,F2,F3])        
+                x[:,k+1] = x[:,k]-Jacobi_Matrix(f1,f2,f3,x[0,k],x[1,k],x[2,k])@F
+            else:
+                return x[:,:k+1]
+#                print("Error")
+    return x
+```
+在这里我们默认**两次迭代之间最小的变化的绝对值超过100**为收敛条件（这可能不是一个好的判断方法），当**两次迭代最大变化绝对值小于1e-5**则认为迭代法收敛。一个例子如下：
+``` python
+# f = [f1,f2,f3,f4,f5]'=0
+# a* = 1 b* = 3 c* = 2 
+a = sp.Symbol('a')
+b = sp.Symbol('b')
+c = sp.Symbol('c')
+f1 = a**2 + b - 2*c
+f2 = 3*a + 2**b -c**3 - 3
+f3 = a + b + c - 6
+a0 = 10
+b0 = 25
+c0 = 80
+n = 100
+solution = Newton_Recursive_Multi(f1,f2,f3,a0,b0,c0,n)
+```
+我们得到在初值为![](http://latex.codecogs.com/gif.latex?(a_0,b_0,c_0)=(10,25,80))时的迭代结果为![](http://latex.codecogs.com/gif.latex?(a^*,b^*,c^*)=(-0.7587,4.3139,2.44483))（尽管在我构造这个非线性方程组时设定的解是![](http://latex.codecogs.com/gif.latex?(a^*,b^*,c^*)=(1,3,2))，下面我们再使用另一组初值进行迭代：
+``` python
+# f = [f1,f2,f3,f4,f5]'=0
+# a* = 1 b* = 3 c* = 2 
+a = sp.Symbol('a')
+b = sp.Symbol('b')
+c = sp.Symbol('c')
+f1 = a**2 + b - 2*c
+f2 = 3*a + 2**b -c**3 - 3
+f3 = a + b + c - 6
+a0 = 1
+b0 = 2.5
+c0 = 3.3
+n = 100
+solution = Newton_Recursive_Multi(f1,f2,f3,a0,b0,c0,n)
+```
+这种情况下我们得到了我们想要的收敛结果。
+
 ### 双点快速截弦法/
 
 ## 线性方程组LU分解/System of Linear Equation——LU Decomposition
