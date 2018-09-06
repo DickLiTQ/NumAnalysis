@@ -250,11 +250,14 @@ solution = Newton_Recursive_Multi(f1,f2,f3,a0,b0,c0,n)
 首先我们先对系数矩阵A进行判断并返回维度供后续使用
 ``` python
 import numpy as np
+
+""" Input Example
 A = np.array([[1,3,5,9],
               [2,5,2,5],
               [9,3,4,1],
               [1,10,0,19]]) # Here input your coefficient matrix
 b = np.array([10,24,31,42]) # Here input the vector
+"""
 
 def check(A):
     row = A.shape[0]
